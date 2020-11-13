@@ -5,7 +5,7 @@ const router = express.Router()
 router.get("/", async (req, res, next) => {
 	try {
 		res.json({
-			message: "Welcome",
+			message: "Welcome BW",
         })
         next()
 	} catch (err) {
