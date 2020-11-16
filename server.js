@@ -1,7 +1,7 @@
 
 const express=require('express')
 // const helmet=require("helmet")
-const cors=require("cors")
+// const cors=require("cors")
 // const db= require('./data')
 // const bodyParser=require('body-parser')
 // const session = require("express-session");
@@ -11,7 +11,7 @@ const authRouter=require("./router/auth-router")
 
 const server=express()
 // server.use(helmet());
-server.use(cors());
+// server.use(cors());
 
 server.use(express.json())
 
