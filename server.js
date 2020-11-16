@@ -1,32 +1,37 @@
 
 const express=require('express')
+const helmet=require("helmet")
+const cors=require("cors")
 // const db= require('./data')
 // const bodyParser=require('body-parser')
+const session = require("express-session");
 
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
 
-
-const port = 3333       
-
 const server=express()
-
+server.use(helmet());
+server.use(cors());
 
 server.use(express.json())
-server.use(logger)
+
+server.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.JWT_SECRET || "Secret word",
+  })
+);
+// server.use(logger)
 // server.use(helmet())
 
 
+
+
+
+server.use("/api/auth",logger,authRouter)
 server.use("/",logger,welcomeRouter)
-console.log(authRouter)
 
-server.use("/login",logger,authRouter)
-
-// server.get("/", (req, res) => {
-// 	res.json({
-// 		message: "Welcome to our API",
-// 	})
-// })
 server.use((err, req, res, next) => {
 	console.log(err)
 	res.status(500).json({

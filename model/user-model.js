@@ -2,7 +2,7 @@ const db=require("../database/config")
 
 function find(){
     return db("users")
-    .select("id", "username", "password", "first_name", "last_name", "email")
+    .select("id", "username", "password", "first_name", "last_name", "email", "type")
   }
   
   function findBy(filter) {

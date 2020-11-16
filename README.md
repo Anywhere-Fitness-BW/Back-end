@@ -65,7 +65,7 @@ PUT  /api/:insId/classes/:id
 - Updates existing class
 - Requires: name, type, intensity, max_clients, day, start_time, duration, location
 
- DELETE  /api/:instructorId/classes/:classId 
+ DELETE  /api/:insId/classes/:classId 
  - Deletes existing class
 
 
