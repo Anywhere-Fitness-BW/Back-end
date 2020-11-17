@@ -1,15 +1,25 @@
 
 const express=require('express')
+const helmet = require("helmet") 
+const cors=require('cors')
 
+const restricted=require('./middleware/restricted')
 
+//--------------------------------------------------------
+//routers
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
 
-const server=express()
-// server.use(helmet());
-// server.use(cors());
 
+//--------------------------------------------------------
+const server=express()
+
+// server.use(helmet());
+ server.use(cors());
 server.use(express.json())
+server.use(logger)
+server.use(cors())
+server.use(helmet())
 
 // server.use(
 //   session({
@@ -25,15 +35,16 @@ server.use(express.json())
 
 
 
-server.use("/api/auth",logger,authRouter)
+server.use("/api/auth",logger,restricted,authRouter)
+
 server.get("/",logger,welcomeRouter)
 
-server.use((err, req, res, next) => {
-	console.log(err)
-	res.status(500).json({
-		message: "Something went wrong",
-	})
-})
+// server.use((err, req, res, next) => {
+// 	console.log(err)
+// 	res.status(500).json({
+// 		message: "Something went wrong",
+// 	})
+// })
 module.exports=server
 
 
