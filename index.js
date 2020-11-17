@@ -1,6 +1,6 @@
 const server = require("./server")
 
-const port = process.env.PORT || 3333
-server.listen(port, () => {
-    console.log(`Running at http://localhost:${port}`)
+const PORT= process.env.PORT || 3332
+server.listen(PORT, () => {
+    console.log(`Running at http://localhost:${PORT}`)
 })
