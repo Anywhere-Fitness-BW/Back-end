@@ -5,7 +5,8 @@ const router = express.Router()
 router.get("/", async (req, res, next) => {
 	try {
 		res.json({
-			message: "Welcome",
+			message: `Welcome ${process.env.COHORT}`,
+			desc:process.env.DESCRIBE || "No Description"
         })
         next()
 	} catch (err) {
