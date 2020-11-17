@@ -1,10 +1,6 @@
 
 const express=require('express')
-// const helmet=require("helmet")
-// const cors=require("cors")
-// const db= require('./data')
-// const bodyParser=require('body-parser')
-// const session = require("express-session");
+
 
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
@@ -30,7 +26,7 @@ server.use(express.json())
 
 
 server.use("/api/auth",logger,authRouter)
-server.use("/",logger,welcomeRouter)
+server.get("/",logger,welcomeRouter)
 
 server.use((err, req, res, next) => {
 	console.log(err)
