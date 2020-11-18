@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js",
+    "watch": "nodemon --require dotenv/config index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Anywhere-Fitness-BW/Back-end#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "dotenv": "^8.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "helmet": "^4.2.0",
@@ -31,6 +31,8 @@
     "supertest": "^6.0.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.6"
   }
 }
