@@ -9,6 +9,7 @@ const restricted=require('./middleware/restricted')
 //routers
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
+const userRouter=require("./router/user-router")
 
 
 //--------------------------------------------------------
@@ -35,6 +36,7 @@ server.use(helmet())
 server.use("/api/auth",logger,authRouter)
 
 server.get("/",logger,welcomeRouter)
+server.get("/users",logger, userRouter)
 
 // server.use((err, req, res, next) => {
 // 	console.log(err)
