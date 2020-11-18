@@ -11,7 +11,7 @@
 
 
 API
-Link: 
+Link: https://buildweek-backend.herokuapp.com/
 
 ENDPOINTS
 ---------------------------------------------------------------
@@ -48,7 +48,7 @@ GET  /api/classes/:id
 GET  /api/instructors 
 - Returns an array of all the instructors
 
-GET  /api/instructors/clients 
+GET  /api/instructors/users 
 - Returns a list of all clients
 
 GET  /api/:insId/classes
@@ -65,7 +65,7 @@ PUT  /api/:insId/classes/:id
 - Updates existing class
 - Requires: name, type, intensity, max_clients, day, start_time, duration, location
 
- DELETE  /api/:instructorId/classes/:classId 
+ DELETE  /api/:insId/classes/:classId 
  - Deletes existing class
 
 

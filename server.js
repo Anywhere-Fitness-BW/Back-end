@@ -1,38 +1,49 @@
 
 const express=require('express')
-// const db= require('./data')
-// const bodyParser=require('body-parser')
+const helmet = require("helmet") 
+const cors=require('cors')
 
+const restricted=require('./middleware/restricted')
+
+//--------------------------------------------------------
+//routers
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
+const userRouter=require("./router/user-router")
 
 
-const port = 3333       
-
+//--------------------------------------------------------
 const server=express()
 
-
+// server.use(helmet());
+ server.use(cors());
 server.use(express.json())
 server.use(logger)
+server.use(cors())
+server.use(helmet())
+
+// server.use(
+//   session({
+//     resave: false,
+//     saveUninitialized: false,
+//     secret: process.env.JWT_SECRET || "Secret word",
+//   })
+// );
+// server.use(logger)
 // server.use(helmet())
 
 
-server.use("/",logger,welcomeRouter)
-console.log(authRouter)
+server.use("/api/auth",logger,authRouter)
 
-server.use("/login",logger,authRouter)
+server.get("/",logger,welcomeRouter)
+server.get("/users",logger, userRouter)
 
-// server.get("/", (req, res) => {
-// 	res.json({
-// 		message: "Welcome to our API",
+// server.use((err, req, res, next) => {
+// 	console.log(err)
+// 	res.status(500).json({
+// 		message: "Something went wrong",
 // 	})
 // })
-server.use((err, req, res, next) => {
-	console.log(err)
-	res.status(500).json({
-		message: "Something went wrong",
-	})
-})
 module.exports=server
 
 
