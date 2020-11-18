@@ -32,10 +32,7 @@ server.use(helmet())
 // server.use(helmet())
 
 
-
-
-
-server.use("/api/auth",logger,restricted,authRouter)
+server.use("/api/auth",logger,authRouter)
 
 server.get("/",logger,welcomeRouter)
 
