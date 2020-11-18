@@ -25,7 +25,7 @@ exports.up = async function(knex) {
 			.inTable("instructor")
 			.onDelete("CASCADE")
 			.onUpdate("CASCADE")
-        // this is where we join table so classes with instrctor. 
+    
         table
             .text("name")
             .notNull()
@@ -45,7 +45,8 @@ exports.up = async function(knex) {
           .defaultTo(knex.raw("current_timestamp"))                
       })
 
-     
+     //table for signup for classes
+
       
     }
 
