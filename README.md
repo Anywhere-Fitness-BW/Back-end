@@ -11,7 +11,7 @@
 
 
 API
-Link: 
+Link: https://buildweek-backend.herokuapp.com/
 
 ENDPOINTS
 ---------------------------------------------------------------
@@ -48,7 +48,7 @@ GET  /api/classes/:id
 GET  /api/instructors 
 - Returns an array of all the instructors
 
-GET  /api/instructors/clients 
+GET  /api/instructors/users 
 - Returns a list of all clients
 
 GET  /api/:insId/classes
