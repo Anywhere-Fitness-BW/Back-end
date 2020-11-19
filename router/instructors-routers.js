@@ -1,52 +1,52 @@
-const router = require("express")
-const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
-const inst_db = require ("../model/instructor_model")
-const { restrict} = require("../middleware/restricted")
-const {checkInInstructor} = require("../middleware/instructor-mware")
+// const router = require("express")
+// const bcrypt = require("bcryptjs")
+// const jwt = require("jsonwebtoken")
+// const inst_db = require ("../model/instructor_model")
+// const { restrict} = require("../middleware/restricted")
+// const {checkInInstructor} = require("../middleware/instructor-mware")
 
-const router = express.Router()
+// const router = express.Router()
 
-//api/instructor
-router.request(checkInInstructor);
+// //api/instructor
+// router.request(checkInInstructor);
 
 
-router.get("/instructor" ,async (req, res, next) =>{
-    try{
-        const instructor = await inst_db.find()
-        res.json(instructor)
-    }catch(err){
-        next(err)
+// router.get("/instructor" ,async (req, res, next) =>{
+//     try{
+//         const instructor = await inst_db.find()
+//         res.json(instructor)
+//     }catch(err){
+//         next(err)
 
-    }
-})
+//     }
+// })
 
-router.post("/", (req,res)=>{
-	const data =req.body;
-	inst_db.addClass(data)
-	.then(classes =>{
-		res.status(200).json({data:classes});
-	})
-	.catch(err=>{
-		res.status(500).json({message: "can't add",error: err.message})
-	})
-})
+// router.post("/", (req,res)=>{
+// 	const data =req.body;
+// 	inst_db.addClass(data)
+// 	.then(classes =>{
+// 		res.status(200).json({data:classes});
+// 	})
+// 	.catch(err=>{
+// 		res.status(500).json({message: "can't add",error: err.message})
+// 	})
+// })
 
-router.delete('/:id', (req, res) => {
-	const {id} = req.params;
+// router.delete('/:id', (req, res) => {
+// 	const {id} = req.params;
   
-	inst_db.removeClass(id)
-	  .then(clas => {
-		if (clas) {
-		  res.status(200).json({data: clas, message: 'class deleted'});
-		} else {
-		  res.status(404).json({error: ' incorrect id'});
-		}
-	  })
-	  .catch(err => {
-		res.status(500).json({message: 'Error'});
-	  });
-  });
+// 	inst_db.removeClass(id)
+// 	  .then(clas => {
+// 		if (clas) {
+// 		  res.status(200).json({data: clas, message: 'class deleted'});
+// 		} else {
+// 		  res.status(404).json({error: ' incorrect id'});
+// 		}
+// 	  })
+// 	  .catch(err => {
+// 		res.status(500).json({message: 'Error'});
+// 	  });
+//   });
 
 
 // router.post("/register", async (req, res, next) => {
@@ -114,4 +114,4 @@ router.delete('/:id', (req, res) => {
 
 //     }
 // })
-module.exports = router
+// module.exports = router
