@@ -8,6 +8,11 @@ function find(){
   function findBy(filter) {
     return db("users").where(filter)
   }
+
+  function findIC(){
+    return db("classes")
+    .select("id","date","description","time","intensity","date")
+  }
   
   function findById(id) {
     return db("users")
@@ -36,6 +41,7 @@ function find(){
   
   module.exports = {
     find, 
+    findIC,
     findBy, 
     findById, 
     insert, 

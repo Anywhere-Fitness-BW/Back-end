@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken")
+
 const { jwtSecret } = require("../config/secret")
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers
-
+console.log({authorization})
   if(authorization) {
     jwt.verify(authorization, jwtSecret, (err, decodedToken) => {
       if (err) {
@@ -20,4 +21,5 @@ module.exports = (req, res, next) => {
       message: "No credentials provided"
     })
   }
+  
 }
