@@ -1,11 +1,11 @@
 const router = require("express").Router()
 const Users = require("../model/user-model")
-//  const Classes = require("../model/user-model")
+//  const Classes = require("../model/clients-model")
 const bcrypt = require("bcryptjs")
 const {restrict}=require('../middleware/restricted')
 
 // Get users
-router.get("/users",(req, res) => {
+router.get("/client",(req, res) => {
   Users.find()
     .then(user => {
       res.status(200).json(user)

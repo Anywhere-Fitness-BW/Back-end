@@ -1,14 +1,14 @@
-const router = require("express")
+const express = require("express")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const inst_db = require ("../model/instructor_model")
 const { restrict} = require("../middleware/restricted")
-const {checkInInstructor} = require("../middleware/instructor-mware")
+const {checkInInstructor} = require("../middleware/restricted")
 
 const router = express.Router()
 
 //api/instructor
-router.request(checkInInstructor);
+// router.use(checkInInstructor);
 
 
 router.get("/instructor" ,async (req, res, next) =>{
