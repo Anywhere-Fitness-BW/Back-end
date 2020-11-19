@@ -2,7 +2,7 @@ const router = require("express").Router()
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
-const Users = require("../model/user-model")
+const Users = require("../model/clients-model")
 const { jwtSecret } = require("../config/secret")
 
 // New User
@@ -358,4 +358,3 @@ module.exports = router
 // module.exports = router;
 
 
-// */
