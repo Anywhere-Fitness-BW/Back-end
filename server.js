@@ -9,7 +9,7 @@ const restricted=require('./middleware/restricted')
 //routers
 const welcomeRouter=require("./router/welcome-router")
 const authRouter=require("./router/auth-router")
-const userRouter=require("./router/user-router")
+const userRouter=require("./router/client-router")
 
 
 //--------------------------------------------------------

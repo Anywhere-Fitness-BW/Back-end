@@ -6,12 +6,12 @@ const { restrict } = require("../middleware/restricted")
 
 
 
-router.get("/users", restrict, async (req, res, next) => {
-	try {
-        const users = await db.find()
-        res.json(users)
-	} catch(err) {
-		next(err)
-	}
-})
+// router.get("/users", restrict, async (req, res, next) => {
+// 	try {
+//         const users = await db.find()
+//         res.json(users)
+// 	} catch(err) {
+// 		next(err)
+// 	}
+// })
 module.exports = router
