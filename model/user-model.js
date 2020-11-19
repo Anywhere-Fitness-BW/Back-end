@@ -11,7 +11,7 @@ function find(){
 
   function findIC(){
     return db("classes")
-    .select("*")
+    .select("id","date","description","time","intensity","date")
   }
   
   function findById(id) {
@@ -41,6 +41,7 @@ function find(){
   
   module.exports = {
     find, 
+    findIC,
     findBy, 
     findById, 
     insert, 
