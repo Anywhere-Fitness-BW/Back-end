@@ -8,6 +8,11 @@ function find(){
   function findBy(filter) {
     return db("users").where(filter)
   }
+
+  function findIC(){
+    return db("classes")
+    .select("*")
+  }
   
   function findById(id) {
     return db("users")

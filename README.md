@@ -8,10 +8,12 @@
     |    password:password1          |        password:password2     |
     |----------------------------------------------------------------|
 
-
+instructor , classes-FW
+client -dk
 
 API
 Link: https://buildweek-backend.herokuapp.com/
+
 
 ENDPOINTS
 ---------------------------------------------------------------
@@ -28,6 +30,14 @@ POST    |       /api/instructors/:insId/classes   |  YES
 PUT     |       /api/:insId/classes/:id           |  YES
 DELETE  |       /api/:insId/classes/:id           |  YES
 --------------------------------------------------------------
+
+# Database Table Details 
+1. For Registering client/instructor
+------------------------------------------------------------------------------|
+id     | username  |  password  |  first_name | last_name |  email |  type    |   |      |           |            |             |           |        |          |
+Auto   | Manual    |    Manual  |  Manual     | Manual    |  Manual| Manual   |
+-------------------------------------------------------------------------------
+
 
 # Route For Authorization
 

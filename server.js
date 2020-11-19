@@ -22,21 +22,11 @@ server.use(logger)
 server.use(cors())
 server.use(helmet())
 
-// server.use(
-//   session({
-//     resave: false,
-//     saveUninitialized: false,
-//     secret: process.env.JWT_SECRET || "Secret word",
-//   })
-// );
-// server.use(logger)
-// server.use(helmet())
-
 
 server.use("/api/auth",logger,authRouter)
-
+server.use("/api/",logger, userRouter)
 server.get("/",logger,welcomeRouter)
-server.get("/users",logger, userRouter)
+
 
 // server.use((err, req, res, next) => {
 // 	console.log(err)
