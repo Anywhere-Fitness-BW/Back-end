@@ -7,7 +7,7 @@ exports.up = async function(knex) {
         table.string("first_name").notNull()
         table.string("last_name").notNull()
         table.string("email").notNull().unique()
-        // table.string("type").notNull()
+        table.text("type").notNull()
       })
       await knex.schema.createTable("instructor", (table) => {
         table.increments("id")
@@ -16,6 +16,7 @@ exports.up = async function(knex) {
         table.text("last_name").notNull()
         table.text("email").notNull().unique()
         table.text("password").notNull()
+        table.text("type").notNull()
     })
     
     await knex.schema.createTable("categories", (table) => {

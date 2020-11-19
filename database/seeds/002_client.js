@@ -10,7 +10,7 @@ exports.seed = async function(knex) {
       first_name: "Jane",
       last_name: "Doe",
       email: "janedoe@gmail.com",
-      // type:"client"
+      type:"client"
     }
 	])
 };

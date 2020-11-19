@@ -4,13 +4,14 @@ const jwt = require("jsonwebtoken")
 const inst_db = require ("../model/instructor_model")
 const { restrict} = require("../middleware/restricted")
 const {checkInInstructor} = require("../middleware/instructor-mware")
+
 const router = express.Router()
 
 //api/instructor
 router.request(checkInInstructor);
 
 
-router.get("/", restrict() ,async (req, res, next) =>{
+router.get("/instructor" ,async (req, res, next) =>{
     try{
         const instructor = await inst_db.find()
         res.json(instructor)

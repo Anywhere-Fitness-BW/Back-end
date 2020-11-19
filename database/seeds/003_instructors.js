@@ -9,7 +9,7 @@ exports.seed = async function(knex) {
 			first_name: "John",
 			last_name: "Doe",
 			email: "johndoe1@gmail.com",
-			
+			type:"instructor"
 		  },
 		{
 			username: "dummy4", 
@@ -17,7 +17,7 @@ exports.seed = async function(knex) {
 			first_name: "John",
 			last_name: "Doe",
 			email: "johndoe2@gmail.com",
-			
+			type:"instructor"
 		  },
 		{
 			username: "dummy3", 
@@ -25,9 +25,8 @@ exports.seed = async function(knex) {
 			first_name: "John",
 			last_name: "Doe",
 			email: "johndoe3@gmail.com",
-			
+			type:"instructor"
 		  },
-		// { fist_name: "jane doe1", username: "janedoe1", password: "abc123" },
-		// { fullname: "jane doe2", username: "johndoe2", password: "abc123"},
+		
 	])
 }
