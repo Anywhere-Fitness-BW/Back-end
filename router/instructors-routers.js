@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+const express = require("express")
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
+const inst_db = require ("../model/instructor_model")
+const { restrict} = require("../middleware/restricted")
+const {checkInInstructor} = require("../middleware/restricted")
+
+const router = express.Router()
+
+//api/instructor
+// router.use(checkInInstructor);
+
+
+router.get("/instructor" ,async (req, res, next) =>{
+    try{
+        const instructor = await inst_db.find()
+        res.json(instructor)
+    }catch(err){
+        next(err)
+
+    }
+})
+
+router.post("/", (req,res)=>{
+	const data =req.body;
+	inst_db.addClass(data)
+	.then(classes =>{
+		res.status(200).json({data:classes});
+	})
+	.catch(err=>{
+		res.status(500).json({message: "can't add",error: err.message})
+	})
+})
+
+router.delete('/:id', (req, res) => {
+	const {id} = req.params;
+=======
 // const express = require("express")
 // const bcrypt = require("bcryptjs")
 // const jwt = require("jsonwebtoken")
@@ -34,6 +72,7 @@
 
 // // router.delete('/:id', (req, res) => {
 // // 	const {id} = req.params;
+>>>>>>> 84102ffb1ad8b57b6ec7cd5ee8eaf73d92a95cb2
   
 // // 	inst_db.removeClass(id)
 // // 	  .then(clas => {

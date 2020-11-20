@@ -13,7 +13,7 @@ const Users = require("../model/clients-model")
 // const {restrict}=require('../middleware/restricted')
 
 // Get users
-router.get("/clients",(req, res) => {
+router.get("/users",(req, res) => {
   Users.find()
     .then(user => {
       res.status(200).json(user)
@@ -24,6 +24,32 @@ router.get("/clients",(req, res) => {
       })
     })
 })
+
+router.get("/instructors",(req, res) => {
+    console.log(req.body.type)
+    Users.findByClause(req.body.type="instructor")
+      .then(user => {
+        res.status(200).json(user)
+      })
+      .catch(err => {
+        res.status(500).json({
+          message: "Failed to get users",
+        })
+      })
+  })
+
+  router.get("/client",(req, res) => {
+    console.log(req.body.type)
+    Users.findByClause(req.body.type="client")
+      .then(user => {
+        res.status(200).json(user)
+      })
+      .catch(err => {
+        res.status(500).json({
+          message: "Failed to get users",
+        })
+      })
+  })
 router.get("/classes", async (req, res, next) => {
 	try {
 	  res.json(await Users.findIC()
@@ -34,24 +60,24 @@ router.get("/classes", async (req, res, next) => {
 	  next(err);
 	}
   });
-// // Get user By Id
-// router.get("/:id", (req, res) => {
-//   Users.findById(req.params.id)
-//     .then(user => {
-//       if(!user) {
-//         res.status(401).json({
-//           message: `User of ID ${req.params.id} does not exist`
-//         })
-//       } else {
-//         res.status(200).json(user)
-//       }
-//     })
-//     .catch(err => {
-//       res.status(500).json({
-//         message: "Failed to get user with that ID",
-//       })
-//     })
-// })
+// Get classes By Id
+router.get("/classes/:id", (req, res) => {
+  Users.findById(req.params.id)
+    .then(clas => {
+      if(!clas) {
+        res.status(401).json({
+          message: `Class of ID ${req.params.id} does not exist`
+        })
+      } else {
+        res.status(200).json(clas)
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: "Failed to get user with that ID",
+      })
+    })
+})
 
 // // Get users posts
 // router.get("/:id/posts", (req, res) => {

@@ -9,6 +9,13 @@ function find(){
     return db("client").where(filter)
   }
 
+  function findByClause(filter) {
+    console.log(filter)
+    return db("client")
+    .select("id","first_name as Name","last_name as Family Name","email as Email","type as Account Type")
+    .where("type",filter)
+  }
+
   function findIC(){
     return db("classes")
     .select("id","date","description","time","intensity","date")
@@ -16,7 +23,7 @@ function find(){
   
   function findById(id) {
     return db("client")
-    .select( "first_name", "last_name", "email")
+    .select( "first_name", "last_name", "email as Email")
     .where({id})
     .first()
   }
@@ -45,6 +52,7 @@ function find(){
     findBy, 
     findById, 
     insert, 
-    remove, 
+    remove,
+    findByClause, 
     update
   }
