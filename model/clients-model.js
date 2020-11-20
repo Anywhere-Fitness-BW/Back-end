@@ -1,12 +1,12 @@
 const db=require("../database/config")
 
 function find(){
-    return db("users")
+    return db("client")
     .select(  "first_name", "last_name", "email")
   }
   
   function findBy(filter) {
-    return db("users").where(filter)
+    return db("client").where(filter)
   }
 
   function findIC(){
@@ -15,26 +15,26 @@ function find(){
   }
   
   function findById(id) {
-    return db("users")
+    return db("client")
     .select( "first_name", "last_name", "email")
     .where({id})
     .first()
   }
   
   async function insert(user) {
-    return await db("users")
+    return await db("client")
     .insert(user)
     .returning(["id", "username"])
   }
   
   function remove(id) {
-    return db("users")
+    return db("client")
     .where({id})
     .del()
   }
   
   function update(changes, id) {
-    return db("users")
+    return db("client")
     .where({id})
     .update(changes)
   }
