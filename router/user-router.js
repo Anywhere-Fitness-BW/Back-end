@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const Users = require("../model/user-model")
+const Users = require("../model/clients-model")
 //  const Classes = require("../model/clients-model")
 const bcrypt = require("bcryptjs")
 const {restrict}=require('../middleware/restricted')

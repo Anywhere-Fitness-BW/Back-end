@@ -27,8 +27,6 @@ server.use(helmet())
 server.use("/api/auth",logger,authRouter)
 server.use("/api/",logger, userRouter)
 server.get("/",logger,welcomeRouter)
-// server.get("/client",logger, userRouter)
-server.get("/instructor",logger, instructorRouter)
 
 // server.use((err, req, res, next) => {
 // 	console.log(err)
